@@ -33,12 +33,13 @@ class SightingsController < ApplicationController
     end
   end
   
-  def show
-  sighting = Sighting.find_by(id: params[:id])
-  render json: sighting.to_json(:include => {
-    :bird => {:only => [:name, :species]},
-    :location => {:only => [:latitude, :longitude]}
-  }, :except => [:updated_at])
-end
+#   remove all instances of :created_at and :updated_at from the nested bird and location data
+#   def show
+#   sighting = Sighting.find_by(id: params[:id])
+#   render json: sighting.to_json(:include => {
+#     :bird => {:only => [:name, :species]},
+#     :location => {:only => [:latitude, :longitude]}
+#   }, :except => [:updated_at])
+# end
   
 end
